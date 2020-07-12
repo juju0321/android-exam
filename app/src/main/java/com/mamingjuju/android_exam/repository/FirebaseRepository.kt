@@ -15,6 +15,7 @@ object FirebaseRepository {
     var job: CompletableJob? = null
 
     fun getPersonList(): LiveData<List<PersonalInformationDataModel>> {
+        Log.i("FirebaseRepository: ", "getPersonList")
         job = Job()
         return object: LiveData<List<PersonalInformationDataModel>>() {
             override fun onActive() {

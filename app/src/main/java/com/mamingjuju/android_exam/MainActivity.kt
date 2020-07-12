@@ -23,8 +23,22 @@ class MainActivity : AppCompatActivity() {
 
         initialize()
 
-        viewModel.fetchDataFromFireStoreTrigger()
+        val personList = viewModel.getListOfPersonFromLocalDatabase()
+        if(personList != null) {
+            if(personList.isNotEmpty()) {
+                mRecyclerViewAdapter.updateDataSet(viewModel.getListOfPersonFromLocalDatabase()!!)
+            }
+            else {
+                viewModel.fetchDataFromFireStoreTrigger()
+            }
+        } else {
+            viewModel.fetchDataFromFireStoreTrigger()
+        }
+
         viewModel.personalInformationDataModelList.observe(this, Observer {
+            mListOfPersonalInformationDataModel.clear()
+            mListOfPersonalInformationDataModel.addAll(it)
+            viewModel.saveListOfPersonToLocalDatabase(it)
             mRecyclerViewAdapter.updateDataSet(it)
         })
     }
@@ -44,6 +58,6 @@ class MainActivity : AppCompatActivity() {
             adapter = mRecyclerViewAdapter
         }
 
-        viewModel = ViewModelProvider(this).get(PersonInformationViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PersonInformationViewModel(application)::class.java)
     }
 }
