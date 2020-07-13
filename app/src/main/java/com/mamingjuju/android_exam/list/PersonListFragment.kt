@@ -33,7 +33,6 @@ class PersonListFragment : Fragment() {
         initialize(rootView)
 
         val personList = viewModel.getListOfPersonFromLocalDatabase()
-        println("personList: $personList")
         if(personList != null) {
             if(personList.isNotEmpty()) {
                 mRecyclerViewAdapter.updateDataSet(personList)

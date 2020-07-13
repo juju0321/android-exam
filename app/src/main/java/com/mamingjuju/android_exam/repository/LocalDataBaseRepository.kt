@@ -3,8 +3,6 @@ package com.mamingjuju.android_exam.repository
 import android.content.ContentValues
 import android.content.Context
 import android.provider.BaseColumns
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.mamingjuju.android_exam.model.PersonalInformationLocalRecord
 import com.mamingjuju.android_exam.model.PersonalInformationDataModel
 
@@ -13,8 +11,6 @@ class LocalDataBaseRepository(context: Context) {
         LocalDatabaseHelper(context)
 
     fun addPersonalInformationFromRemoteToLocalDB(personalInformationList: List<PersonalInformationDataModel>?) {
-        println("personList addPersonalInformationFromRemoteToLocalDB")
-        println("personList: $personalInformationList")
         val databaseWriter = mLocalDatabaseHelper.writableDatabase
         personalInformationList?.forEach {
             val personalInformationEntry = ContentValues().apply {
@@ -31,7 +27,7 @@ class LocalDataBaseRepository(context: Context) {
         }
     }
 
-    fun getPersonalInformationFromLocalDatabase(): List<PersonalInformationDataModel> {
+    fun getListPersonalInformationFromLocalDatabase(): List<PersonalInformationDataModel> {
         val databaseReader = mLocalDatabaseHelper.readableDatabase
         val personalInformationList: MutableList<PersonalInformationDataModel> = mutableListOf()
         val projection = arrayOf(BaseColumns._ID,
@@ -70,7 +66,6 @@ class LocalDataBaseRepository(context: Context) {
                 }
             }
         }
-        println("getPersonalInformationFromLocalDatabase: $personalInformationList")
         return personalInformationList
     }
 }

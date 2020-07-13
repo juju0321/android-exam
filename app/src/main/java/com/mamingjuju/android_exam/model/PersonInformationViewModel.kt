@@ -8,7 +8,7 @@ import com.mamingjuju.android_exam.repository.FirebaseRepository
 class PersonInformationViewModel(application: Application) : AndroidViewModel(application) {
     private var fireStoreTrigger: MutableLiveData<Boolean> = MutableLiveData()
     private val personalInformationListFromLocalDB: MutableLiveData<List<PersonalInformationDataModel>> = MutableLiveData(
-        LocalDataBaseRepository(getApplication()).getPersonalInformationFromLocalDatabase()
+        LocalDataBaseRepository(getApplication()).getListPersonalInformationFromLocalDatabase()
     )
 
     val personalInformationDataModelList: LiveData<List<PersonalInformationDataModel>> = Transformations.switchMap(fireStoreTrigger) {
@@ -27,7 +27,7 @@ class PersonInformationViewModel(application: Application) : AndroidViewModel(ap
                 getApplication()
             ).addPersonalInformationFromRemoteToLocalDB(listOfPersonalInformation)
 
-            personalInformationListFromLocalDB.value = LocalDataBaseRepository(getApplication()).getPersonalInformationFromLocalDatabase()
+            personalInformationListFromLocalDB.value = LocalDataBaseRepository(getApplication()).getListPersonalInformationFromLocalDatabase()
         }
     }
 

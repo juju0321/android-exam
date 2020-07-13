@@ -1,8 +1,6 @@
 package com.mamingjuju.android_exam
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.annotation.BoolRes
 import androidx.appcompat.app.AppCompatActivity
 import com.mamingjuju.android_exam.list.PersonListFragment
 

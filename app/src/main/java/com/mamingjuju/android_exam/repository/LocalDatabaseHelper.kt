@@ -3,12 +3,11 @@ package com.mamingjuju.android_exam.repository
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import androidx.annotation.VisibleForTesting
 import com.mamingjuju.android_exam.APPLICATION_CONSTANTS
 
-class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context,
-    DATABASE_NAME, null,
-    DATABASE_VERSION
-){
+class LocalDatabaseHelper(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         const val DATABASE_NAME = "PersonalInformation.db"
