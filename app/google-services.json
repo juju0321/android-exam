@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1031781496664",
+    "firebase_url": "https://android-exam-c4ddd.firebaseio.com",
+    "project_id": "android-exam-c4ddd",
+    "storage_bucket": "android-exam-c4ddd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031781496664:android:e099a2d80190a8e00b972d",
+        "android_client_info": {
+          "package_name": "com.mamingjuju.android_exam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031781496664-uid6h7aot76vrg9qe1qdmlgju1tchv65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-jqGrQ_1DZCStNwSqrHMwyXaRNvbfCQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031781496664-uid6h7aot76vrg9qe1qdmlgju1tchv65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

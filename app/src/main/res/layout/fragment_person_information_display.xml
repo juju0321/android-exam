@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".person.PersonInformationDisplayFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First name:"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:gravity="center"/>
+
+         <TextView
+             android:id="@+id/emailAddressTextView"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Email address:"
+             android:gravity="center"/>
+
+         <TextView
+            android:id="@+id/mobileNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile number:"
+             android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/ageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age: 28"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+            <TextView
+                android:id="@+id/birthdayTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Birthday: June 29, 1994"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address:"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="32dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CONTACT PERSON"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody2"/>
+
+
+            <TextView
+                android:id="@+id/contactPersonTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact person:"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/contactPersonNumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact person number:"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
