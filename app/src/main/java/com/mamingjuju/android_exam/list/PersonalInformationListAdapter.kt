@@ -1,17 +1,19 @@
-package com.mamingjuju.android_exam
+package com.mamingjuju.android_exam.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mamingjuju.android_exam.R
 import com.mamingjuju.android_exam.model.PersonalInformationDataModel
-import kotlinx.android.synthetic.main.personal_info_view_holder.view.*
 
-class PersonalInformationListAdapter(var listOfPairOfPersonalInformationDataModel: List<PersonalInformationDataModel>):
+class PersonalInformationListAdapter(private var listOfPairOfPersonalInformationDataModel: List<PersonalInformationDataModel>,
+                                     private val onViewHolderClickListener: (PersonalInformationDataModel) ->Unit):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PersonalInformationViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.personal_info_view_holder, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.personal_info_view_holder, parent, false)
         )
     }
 
@@ -20,8 +22,9 @@ class PersonalInformationListAdapter(var listOfPairOfPersonalInformationDataMode
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        holder.itemView.personNameTextView.text = "${listOfPairOfPersonalInformationDataModel[position].firstName}" +
-                " ${listOfPairOfPersonalInformationDataModel[position].lastName}"
+        if(holder is PersonalInformationViewHolder) {
+            holder.bind(listOfPairOfPersonalInformationDataModel[position], onViewHolderClickListener)
+        }
     }
 
     fun updateDataSet(newDataSet: List<PersonalInformationDataModel>) {

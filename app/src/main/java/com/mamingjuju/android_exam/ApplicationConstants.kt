@@ -12,6 +12,7 @@ object APPLICATION_CONSTANTS {
                 "${PersonalInformationLocalRecord.Person.COLUMN_BIRTHDAY} TEXT," +
                 "${PersonalInformationLocalRecord.Person.COLUMN_EMAIL_ADDRESS} TEXT," +
                 "${PersonalInformationLocalRecord.Person.COLUMN_MOBILE_NUMBER} TEXT," +
+                "${PersonalInformationLocalRecord.Person.COLUMN_ADDRESS} TEXT," +
                 "${PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON} TEXT," +
                 "${PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON_NUMBER} TEXT)"
     const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${PersonalInformationLocalRecord.Person.TABLE_NAME}"

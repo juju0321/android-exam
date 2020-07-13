@@ -2,8 +2,10 @@ package com.mamingjuju.android_exam.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.mamingjuju.android_exam.model.PersonInformationViewModel
 import com.mamingjuju.android_exam.model.PersonalInformationDataModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
@@ -15,7 +17,6 @@ object FirebaseRepository {
     var job: CompletableJob? = null
 
     fun getPersonList(): LiveData<List<PersonalInformationDataModel>> {
-        Log.i("FirebaseRepository: ", "getPersonList")
         job = Job()
         return object: LiveData<List<PersonalInformationDataModel>>() {
             override fun onActive() {

@@ -3,6 +3,8 @@ package com.mamingjuju.android_exam.repository
 import android.content.ContentValues
 import android.content.Context
 import android.provider.BaseColumns
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.mamingjuju.android_exam.model.PersonalInformationLocalRecord
 import com.mamingjuju.android_exam.model.PersonalInformationDataModel
 
@@ -17,10 +19,11 @@ class LocalDataBaseRepository(context: Context) {
         personalInformationList?.forEach {
             val personalInformationEntry = ContentValues().apply {
                 put(PersonalInformationLocalRecord.Person.COLUMN_FIRST_NAME, it.firstName)
-                put(PersonalInformationLocalRecord.Person.COLUMN_LAST_NAME, it.firstName)
+                put(PersonalInformationLocalRecord.Person.COLUMN_LAST_NAME, it.lastName)
                 put(PersonalInformationLocalRecord.Person.COLUMN_BIRTHDAY, it.birthday)
                 put(PersonalInformationLocalRecord.Person.COLUMN_EMAIL_ADDRESS, it.emailAddress)
                 put(PersonalInformationLocalRecord.Person.COLUMN_MOBILE_NUMBER, it.mobileNumber)
+                put(PersonalInformationLocalRecord.Person.COLUMN_ADDRESS, it.address)
                 put(PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON, it.contactPerson)
                 put(PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON_NUMBER, it.contactPersonNumber)
             }
@@ -37,6 +40,7 @@ class LocalDataBaseRepository(context: Context) {
             PersonalInformationLocalRecord.Person.COLUMN_BIRTHDAY,
             PersonalInformationLocalRecord.Person.COLUMN_EMAIL_ADDRESS,
             PersonalInformationLocalRecord.Person.COLUMN_MOBILE_NUMBER,
+            PersonalInformationLocalRecord.Person.COLUMN_ADDRESS,
             PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON,
             PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON_NUMBER
         )
@@ -55,17 +59,18 @@ class LocalDataBaseRepository(context: Context) {
                         PersonalInformationLocalRecord.Person.COLUMN_EMAIL_ADDRESS))
                     val mobileNumber = getString(cursor.getColumnIndex(
                         PersonalInformationLocalRecord.Person.COLUMN_MOBILE_NUMBER))
+                    val address = getString(cursor.getColumnIndex(
+                        PersonalInformationLocalRecord.Person.COLUMN_ADDRESS))
                     val contactPerson = getString(cursor.getColumnIndex(
                         PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON))
                     val contactPersonNumber = getString(cursor.getColumnIndex(
                         PersonalInformationLocalRecord.Person.COLUMN_CONTACT_PERSON_NUMBER))
-
                     personalInformationList.add(PersonalInformationDataModel(firstName, lastName, birthday, emailAddress,
-                        mobileNumber, contactPerson, contactPersonNumber))
+                        mobileNumber, address, contactPerson, contactPersonNumber))
                 }
             }
         }
-
+        println("getPersonalInformationFromLocalDatabase: $personalInformationList")
         return personalInformationList
     }
 }
