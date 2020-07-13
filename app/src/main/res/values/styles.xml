@@ -7,6 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Them.MaterialDesign" parent="Theme.MaterialComponents.Light.DarkActionBar.Bridge"/>
+    <style name="Theme.MaterialDesign" parent="Theme.MaterialComponents.Light.DarkActionBar.Bridge"/>
+
+    <!-- This style is for the splash screen -->
+    <style name="Theme.NoActionBar" parent="Theme.MaterialDesign">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 </resources>
